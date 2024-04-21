@@ -1,8 +1,10 @@
-from os.path import join
+from os import mkdir
+from os.path import exists, join
 from sqlite3 import connect
 from sqlite3.dbapi2 import IntegrityError
 
-DB_PATH = join("db", "leaderboard.db")
+DB_FOLDER = "db"
+DB_PATH = join(DB_FOLDER, "leaderboard.db")
 CREATE_SCHEMA = """
     CREATE TABLE IF NOT EXISTS leaderboard (
         id INTEGER PRIMARY KEY,
@@ -24,6 +26,8 @@ UPDATE_SCORE = """
 
 
 def init_database():
+    if not exists(DB_FOLDER):
+        mkdir(DB_FOLDER)
     with connect(DB_PATH) as conn:
         cursor = conn.cursor()
         cursor.execute(CREATE_SCHEMA)
