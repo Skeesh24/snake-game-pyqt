@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QLineEdit, QMainWindow, QPushButton
+from PyQt5.QtWidgets import QApplication, QLineEdit, QMainWindow, QPushButton, QLabel
 
 from database import get_leaderboard_data, init_database
 from widgets.game import GameField
@@ -12,19 +12,24 @@ class Main(QMainWindow):
         self.initUI()
 
     def init_start_button(self):
-        self.start_button = QPushButton("Start Game", self)
+        self.start_button = QPushButton("Начать игру", self)
         self.start_button.move(50, 50)
         self.start_button.clicked.connect(self.start_game)
 
     def init_leaderboard_button(self):
-        self.open_rating_button = QPushButton("Leaderboard", self)
+        self.open_rating_button = QPushButton("Рейтинг", self)
         self.open_rating_button.move(500, 50)
         self.open_rating_button.clicked.connect(self.open_leaderboard)
 
     def init_name_input(self):
         self.name_input = QLineEdit(self)
         self.name_input.setGeometry(250, 50, 150, 30)
-        self.name_input.setPlaceholderText("Enter your name")
+        self.name_input.setPlaceholderText("Введите свое имя")
+
+    def init_score_label(self):
+        self.score_text = "Счёт: %d"
+        self.score_label = QLabel(self)
+        self.score_label.setGeometry(280, 610, 60, 30)
     
     def get_name(self):
         return self.name_input.text()
@@ -35,6 +40,7 @@ class Main(QMainWindow):
         self.init_start_button()
         self.init_leaderboard_button()
         self.init_name_input()
+        self.init_score_label()
         self.game_field = GameField(self)
 
     def start_game(self):

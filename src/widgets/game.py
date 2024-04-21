@@ -37,6 +37,7 @@ class GameField(QWidget):
         if head == self.fruit:
             self.spawn_fruit()
             self.score += 10
+            self.form.score_label.setText(self.form.score_text % self.score)
         else:
             self.snake.pop()
 
@@ -55,7 +56,7 @@ class GameField(QWidget):
 
     def end_game(self):
         current_name = self.form.get_name()
-        add_to_leaderboard(current_name or "Anonym", self.score)
+        add_to_leaderboard(current_name or "Аноним", self.score)
         self._end_messagebox()
 
     def _end_messagebox(self):
@@ -80,6 +81,7 @@ class GameField(QWidget):
         self.fruit = QPoint(0, 0)
         self.direction = QPoint(1, 0)
         self.score = 0
+        self.form.score_label.setText(self.form.score_text % 0)
 
     def paintEvent(self, _):
         qp = QPainter(self)
