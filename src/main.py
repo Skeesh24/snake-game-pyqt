@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QLineEdit, QMainWindow, QPushButton, QLabel
 
 from database import get_leaderboard_data, init_database
-from resources import init_resources
 from widgets.game import GameField
 from windows.leaderboard import LeaderboardWindow
 
@@ -10,8 +9,7 @@ class Main(QMainWindow):
     def __init__(self):
         super().__init__()
         init_database()
-        init_resources()
-        self.init_UI()
+        self.initUI()
 
     def init_start_button(self):
         self.start_button = QPushButton("Начать игру", self)
@@ -36,7 +34,7 @@ class Main(QMainWindow):
     def get_name(self):
         return self.name_input.text()
 
-    def init_UI(self):
+    def initUI(self):
         self.setWindowTitle("Snake Game")
         self.setGeometry(300, 300, 650, 650)
         self.init_start_button()
