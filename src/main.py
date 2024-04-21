@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QApplication, QLineEdit, QMainWindow, QPushButton
 
 from database import get_leaderboard_data, init_database
-from src.widgets.game import GameField
-from src.windows.leaderboard import LeaderboardWindow
+from widgets.game import GameField
+from windows.leaderboard import LeaderboardWindow
 
 
 class Main(QMainWindow):
