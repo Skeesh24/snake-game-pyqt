@@ -1,11 +1,11 @@
 import random
-from os.path import join
 
 from PyQt5.QtCore import QPoint, Qt, QTimer
 from PyQt5.QtGui import QColor, QPainter, QPixmap
 from PyQt5.QtWidgets import QMessageBox, QWidget
 
 from database import add_to_leaderboard
+from resources import RES_BACKGROUND
 
 
 class GameField(QWidget):
@@ -15,7 +15,7 @@ class GameField(QWidget):
         self.initGameField()
 
     def initGameField(self):
-        self.background = QPixmap(join("res", "background.png"))
+        self.background = QPixmap(RES_BACKGROUND)
         self.setGeometry(50, 100, 550, 500)
         self.reset_game_parameters()
         self.timer = QTimer()
