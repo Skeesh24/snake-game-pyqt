@@ -55,7 +55,7 @@ class GameField(QWidget):
         )
 
     def end_game(self):
-        current_name = self.form.get_name()
+        current_name = self.form.name_input.text()
         add_to_leaderboard(current_name or "Аноним", self.score)
         self._end_messagebox()
 

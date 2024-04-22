@@ -32,9 +32,6 @@ class Main(QMainWindow):
         self.score_text = "Счёт: %d"
         self.score_label = QLabel(self)
         self.score_label.setGeometry(280, 610, 60, 30)
-    
-    def get_name(self):
-        return self.name_input.text()
 
     def init_UI(self):
         self.setWindowTitle("Snake Game")
