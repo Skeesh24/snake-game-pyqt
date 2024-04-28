@@ -13,6 +13,7 @@ class Main(QMainWindow):
 
     def init_UI(self):
         self.setWindowTitle("Главное меню")
+        self.setStyleSheet("background-color: #333; color: #eee;")
         self.setGeometry(300, 300, 300, 300)
         self.init_leaderboard_button()
         self.init_game_button()
@@ -24,14 +25,14 @@ class Main(QMainWindow):
         self.open_rating_button.clicked.connect(self.open_leaderboard)
 
     def init_game_button(self):
-        self.open_rating_button = QPushButton("Игра", self)
-        self.open_rating_button.move(100, 50)
-        self.open_rating_button.clicked.connect(self.open_game)
+        self.open_game_button = QPushButton("Игра", self)
+        self.open_game_button.move(100, 50)
+        self.open_game_button.clicked.connect(self.open_game)
 
     def init_info_button(self):
-        self.open_rating_button = QPushButton("Правила игры", self)
-        self.open_rating_button.move(100, 150)
-        self.open_rating_button.clicked.connect(self.open_info)
+        self.open_info_button = QPushButton("Правила игры", self)
+        self.open_info_button.move(100, 150)
+        self.open_info_button.clicked.connect(self.open_info)
 
     def open_leaderboard(self):
         self.leaderboard_window = LeaderboardWindow()

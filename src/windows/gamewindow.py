@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QWidget, QLineEdit, QLabel, QPushButton
+from PyQt5.QtWidgets import QLabel, QLineEdit, QPushButton, QWidget
+
 from widgets.game import GameField
 
 
@@ -6,7 +7,7 @@ class GameWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
-    
+
     def init_start_button(self):
         self.start_button = QPushButton("Начать игру", self)
         self.start_button.setGeometry(50, 50, 150, 30)
@@ -27,10 +28,10 @@ class GameWindow(QWidget):
         self.game_field.start_game()
 
     def initUI(self):
-        self.setWindowTitle('Игра')
+        self.setWindowTitle("Игра")
+        self.setStyleSheet("background-color: #333; color: #eee;")
         self.setGeometry(300, 300, 650, 650)
         self.init_start_button()
         self.init_name_input()
         self.init_score_label()
         self.game_field = GameField(self)
-
