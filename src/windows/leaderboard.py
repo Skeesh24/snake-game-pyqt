@@ -7,7 +7,7 @@ class LeaderboardWindow(QWidget):
         self.initUI()
     
     def initUI(self):
-        self.setWindowTitle('Leaderboard')
+        self.setWindowTitle('Таблица лидеров')
         self.setGeometry(400, 400, 300, 200)
         layout = QVBoxLayout(self)
         

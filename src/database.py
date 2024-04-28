@@ -25,16 +25,6 @@ UPDATE_SCORE = """
 """
 
 
-def init_database():
-    if not exists(DB_FOLDER):
-        mkdir(DB_FOLDER)
-    with connect(DB_PATH) as conn:
-        cursor = conn.cursor()
-        cursor.execute(CREATE_SCHEMA)
-        cursor.close()
-        conn.commit()
-
-
 def get_leaderboard_data():
     with connect(DB_PATH) as conn:
         cursor = conn.cursor()
@@ -65,3 +55,13 @@ def select_all():
         leaderboard_data = cursor.fetchall()
         cursor.close()
         return leaderboard_data
+
+
+# =========== module initialization ===========
+if not exists(DB_FOLDER):
+    mkdir(DB_FOLDER)
+    with connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute(CREATE_SCHEMA)
+        cursor.close()
+        conn.commit()

@@ -6,6 +6,6 @@ RES_FOLEDR = "res"
 RES_BACKGROUND = join(RES_FOLEDR, "background.png")
 
 
-def init_resources():
-    if not exists(RES_FOLEDR):
-        mkdir(RES_FOLEDR)
+# =========== module initialization ===========
+if not exists(RES_FOLEDR):
+    mkdir(RES_FOLEDR)
