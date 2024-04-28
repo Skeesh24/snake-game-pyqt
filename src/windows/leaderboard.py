@@ -21,6 +21,9 @@ class LeaderboardWindow(QWidget):
         self.table_widget = QTableWidget()
         self.table_widget.setColumnCount(2)
         self.table_widget.setHorizontalHeaderLabels(["Игрок", "Счет"])
+        header_style = "QHeaderView::section { color: #eee; background-color: #333; }"
+        self.table_widget.verticalHeader().setStyleSheet(header_style)
+        self.table_widget.horizontalHeader().setStyleSheet(header_style)
         self.table_widget.setEditTriggers(QTableWidget.NoEditTriggers)
         self.table_widget.horizontalHeader().setStretchLastSection(True)
         self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
